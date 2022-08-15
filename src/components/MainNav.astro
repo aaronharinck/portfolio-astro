@@ -1,0 +1,261 @@
+<nav>
+  <div class="container nav-container">
+    <a href="/" class="logo-link" aria-label="Go to homepage">
+      <svg
+        width="55"
+        height="35"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="logo"
+      >
+        <path
+          d="M21.8 0H11.76L0 35h8.63l1.73-5.5h12.82l1.73 5.5h8.63L29.2 22h13.08l4.1 13H55L43.26 0h-7.94l4.24 13.4.34 1.1H26.66L21.8 0Zm-9.07 22 .96-3.07 3.1-9.78 3.09 9.78.96 3.07h-8.11Z"
+          style="fill: currentColor"></path>
+      </svg>
+    </a>
+    <div class="nav-wrapper">
+      <div
+        class="nav-hamburger btn btn--menu"
+        id="menu-btn"
+        aria-expanded="false"
+        aria-controls="menu"
+        aria-label="Open mobile nav"
+        role="button"
+      >
+        <div class="nav-hamburger__icon"></div>
+      </div>
+      <ul role="menubar" class="nav-links" id="menu">
+        <li role="none">
+          <a
+            role="menuitem"
+            href="about.html"
+            class="nav-link btn custom-underline"
+          >
+            About
+          </a>
+        </li>
+        <li role="none">
+          <a role="menuitem" href="#" class="nav-link btn custom-underline"
+            >Work
+          </a>
+        </li>
+        <li role="none">
+          <a role="menuitem" href="#" class="nav-link btn custom-underline"
+            >Contact
+          </a>
+        </li>
+        <li role="none">
+          <a role="menuitem" href="#" class="nav-link btn btn--accent"> CV</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<style>
+  /* automaticaly scoped to MainNav component by Astro*/
+  nav {
+    z-index: 10;
+    width: 100%;
+    padding-block: 1.2rem;
+    padding-inline: 1rem;
+    transition: background-color 800ms cubic-bezier(0.64, 0.04, 0.26, 0.87);
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo-link {
+    z-index: 20;
+    display: flex;
+    color: var(--c-text);
+  }
+
+  .logo-link:focus-visible,
+  .nav-link:focus-visible {
+    outline: 4px solid var(--c-accent1);
+    outline-offset: 0.2em;
+    border-radius: 0.5rem;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 1.5rem;
+    position: fixed;
+    z-index: 10;
+    inset: 0;
+    background-color: var(--c-accent2);
+    padding: 5.5rem 1.5rem 2.5rem 1.5rem;
+    border-bottom: 4px solid var(--c-accent1);
+    text-align: center;
+    transform: translate3d(100%, 0, 0);
+    transition: transform 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
+  }
+
+  .btn--accent {
+    background-color: var(--c-accent1);
+    padding: var(--size-3) var(--size-5);
+    border-radius: var(--radius-2) var(--radius-3) var(--radius-2)
+      var(--radius-2);
+  }
+
+  li[role="none"],
+  .nav-link {
+    width: 100%;
+    list-style: none;
+    font-size: 1.1rem;
+    color: var(--c-text);
+    text-decoration: none;
+    font-size: var(--fs-f-large);
+    font-weight: var(--font-weight-6);
+  }
+
+  .btn--menu[aria-expanded="true"] + .nav-links {
+    transform: translate3d(0, 0, 0);
+    height: 100vh;
+  }
+
+  /* Hamburger button */
+  .nav-hamburger {
+    position: relative;
+    display: flex;
+    z-index: 20;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  .nav-hamburger__icon {
+    width: 50px;
+    height: 5px;
+    background: currentColor;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out, background-color 0.2s ease-in-out;
+  }
+  .nav-hamburger__icon::before,
+  .nav-hamburger__icon::after {
+    content: "";
+    position: absolute;
+
+    width: 50px;
+    height: 5px;
+    background: currentColor;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+  }
+  .nav-hamburger__icon::before {
+    transform: translateY(-16px);
+  }
+  .nav-hamburger__icon::after {
+    transform: translateY(16px);
+  }
+  /* Hamburger icon animation */
+  .btn--menu[aria-expanded="true"] > .nav-hamburger__icon {
+    transform: translateX(-50px);
+    background-color: transparent;
+  }
+  .btn--menu[aria-expanded="true"] .nav-hamburger__icon::before {
+    transform: rotate(45deg) translate(35px, -35px);
+  }
+  .btn--menu[aria-expanded="true"] > .nav-hamburger__icon::after {
+    transform: rotate(-45deg) translate(35px, 35px);
+  }
+
+  /* media querries */
+  @media (min-width: 768px) {
+    .btn--menu {
+      display: none;
+    }
+    .nav-links {
+      position: static;
+      transform: translate3d(0, 0, 0);
+      flex-direction: row;
+      border: 0;
+      z-index: 0;
+      padding: 0;
+      inset: 0;
+      background-color: transparent;
+    }
+
+    .btn--menu[aria-expanded="true"] + .nav-links {
+      height: unset;
+    }
+
+    li[role="none"],
+    .nav-link {
+      width: initial;
+    }
+
+    /* hover line animation */
+    .nav-link {
+      position: relative;
+      font-size: var(--fs-large);
+    }
+    .custom-underline::after {
+      content: "";
+      position: absolute;
+    }
+    li[role="none"] .custom-underline::after {
+      top: 120%;
+      height: var(--size-1);
+      width: 0%;
+      left: 0;
+      right: 0;
+      background-color: var(--c-text);
+      transition: 0.5s ease all 0.3s;
+    }
+    li[role="none"]:hover .custom-underline::after {
+      width: 100%;
+      transition: 0.3s ease all;
+    }
+  }
+
+  @media (max-width: 767px) {
+    /* Safari only ATM https://caniuse.com/css-has */
+    @supports (selector(:has(p))) {
+      /* Supported! */
+      body.stop-scrolling:has(.btn--menu[aria-expanded="true"]) {
+        height: 100%;
+        overflow: hidden;
+      }
+    }
+    @supports not (selector(:has(p))) {
+      /* not supported! */
+      body.stop-scrolling {
+        height: 100%;
+        overflow: hidden;
+      }
+    }
+  }
+</style>
+
+<script>
+  const navBtn: HTMLElement | null = document.querySelector("#menu-btn");
+  if (navBtn instanceof HTMLElement && navBtn.hasAttribute("aria-expanded")) {
+    navBtn.addEventListener("click", () => {
+      const prevExpandedState: boolean = JSON.parse(
+        navBtn.getAttribute("aria-expanded")!
+      );
+      const isExpanded = !prevExpandedState;
+      navBtn.setAttribute("aria-expanded", isExpanded.toString());
+
+      // disable scroll using css
+      if (isExpanded && document.querySelector("body") !== null) {
+        document.querySelector("body")?.classList.add("stop-scrolling");
+      } else if (
+        document.querySelector("body")?.classList.contains("stop-scrolling") &&
+        isExpanded === false
+      ) {
+        document.querySelector("body")?.classList.remove("stop-scrolling");
+      }
+    });
+  }
+</script>

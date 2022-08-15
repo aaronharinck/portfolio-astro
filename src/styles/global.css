@@ -1,42 +1,57 @@
-/* @import "https://unpkg.com/open-props/normalize.min.css"; */
-
 :root {
-  --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
-  --font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
-  --font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+  /* font */
+  --font-main: "Satoshi", "IBM plex sans", system-ui, -apple-system, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-headings: var(--font-main);
+  /* font-sizes */
+  --fs-small: var(--font-size-0);
+  --fs-regular: var(--font-size-1);
+  --fs-large: var(--font-size-3);
+  --fs-xl: var(--font-size-4);
+  --fs-2xl: var(--font-size-5);
+  /* fluid font-sizes */
+  --fs-f-regular: var(--font-size-fluid-1);
+  --fs-f-large: var(--font-size-fluid-2);
+  --fs-f-xl: var(--font-size-fluid-3);
 
-  --color-text: hsl(12, 5%, 4%);
-  --color-bg: hsl(10, 21%, 95%);
-  --color-border: hsl(17, 24%, 90%);
-
-  --darkC: hsl(0, 0%, 0%);
-  --backgroundC: hsl(0, 0%, 12%);
-  --textC: hsl(0, 0%, 100%);
-  --lightTextC: hsl(0, 0%, 60%);
-  --accentC: hsl(260, 100%, 58%);
-  --accentDarkC: hsl(270, 94%, 12%);
+  /* colors */
+  --c-bg: hsl(0, 0%, 12%);
+  --c-bg-alt: hsl(270, 94%, 12%);
+  --c-text: hsl(240, 20%, 99%);
+  --c-text-alt: hsl(0, 0%, 0%);
+  --c-muted: hsl(0, 0%, 60%);
+  --c-light: hsl(271, 35%, 70%);
+  --c-grayscale: hsl(240, 20%, 99%); /* black or white */
+  --c-accent1: hsl(260, 100%, 58%);
+  --c-accent2: hsl(270, 94%, 12%);
 }
 
 html {
-  font-family: "Satoshi", "IBM plex sans", system-ui, sans-serif;
-  font-size: var(--font-size-base);
-  color: var(--color-text);
-  background-color: var(--color-bg);
+  font-family: var(--font-main);
+  font-weight: var(--font-weight-4);
+  font-size: var(--fs-regular);
+  color: var(--c-text);
+  background-color: var(--c-bg);
 }
 
 body {
   margin: 0;
 }
 
-:global(h1) {
-  font-size: var(--font-size-xl);
+h1 {
+  font-size: var(--fs-f-xl);
+  font-weight: var(--font-weight-9);
 }
 
-:global(h2) {
-  font-size: var(--font-size-lg);
+h2 {
+  font-size: var(--fs-f-large);
+  font-weight: var(--font-weight-6);
 }
 
-/* :global(code) {
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
-} */
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--fs-f-regular);
+  font-weight: var(--font-weight-4);
+}

@@ -206,15 +206,16 @@
     li[role="none"] .custom-underline::after {
       top: 120%;
       height: var(--size-1);
-      width: 0%;
       left: 0;
       right: 0;
       background-color: var(--c-text);
-      transition: 0.5s ease all 0.3s;
+      transform-origin: center left;
+      transform: scaleX(0);
+      transition: 0.5s var(--ease-out-3) transform;
     }
     li[role="none"]:hover .custom-underline::after {
-      width: 100%;
-      transition: 0.3s ease all;
+      transform: scaleX(1);
+      transition: 0.3s cubic-bezier(0.61, 0.48, 0.15, 1) transform;
     }
   }
 

@@ -2,9 +2,18 @@
 export interface Props {
   title: string;
   description: string;
+  robots?: string;
+  lang?: string;
+  canonical?: string;
 }
 
-const { title, description } = Astro.props as Props;
+const {
+  title,
+  description,
+  robots = "index, follow",
+  lang = "en",
+  canonical = `https://aaronharinck.be${Astro.url.pathname}`,
+} = Astro.props as Props;
 
 import "@styles/normalize-reset.css";
 import "@styles/global.css";
@@ -12,39 +21,142 @@ import MainNav from "@components/MainNav.astro";
 ---
 
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f29ff" />
-    <meta name="msapplication-TileColor" content="#603cba" />
-    <meta name="theme-color" content="#6f29ff" />
-    <link
-      href="https://api.fontshare.com/v2/css?f[]=satoshi@1,2&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+<html lang={lang}>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator} />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <meta name="robots" content={robots} />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f29ff" />
+  <meta name="msapplication-TileColor" content="#603cba" />
+  <meta name="theme-color" content="#6f29ff" />
+  <link
+    href="https://api.fontshare.com/v2/css?f[]=satoshi@1,2&display=swap"
+    rel="stylesheet"
+  />
 
   <body>
-    <MainNav />
+    <div class="noise-container">
+      <canvas id="noise" class="noise"></canvas>
 
-    <div class="container">
-      <slot />
+      <MainNav />
+
+      <div class="container">
+        <slot />
+      </div>
+
+      <footer></footer>
     </div>
 
-    <footer></footer>
-
     <style>
+      /* noise */
+      .noise-container {
+        position: relative;
+        min-height: 100vh;
+      }
 
+      .noise {
+        z-index: 100;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        pointer-events: none;
+        opacity: 0.02;
+      }
+
+      @media (min-width: 48em) {
+        .noise {
+          opacity: 0.06;
+        }
+      }
     </style>
+
+    <script>
+      const noise = () => {
+        let canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D;
+
+        let wWidth: number, wHeight: number;
+
+        let noiseData: any = [];
+        let frame = 0;
+
+        let loopTimeout;
+
+        // Create Noise
+        const createNoise = () => {
+          const idata: any = ctx.createImageData(wWidth, wHeight);
+          const buffer32 = new Uint32Array(idata.data.buffer);
+          const len = buffer32.length;
+
+          for (let i = 0; i < len; i++) {
+            if (Math.random() < 0.5) {
+              buffer32[i] = 0xff000000;
+            }
+          }
+
+          noiseData.push(idata);
+        };
+
+        // Play Noise
+        const paintNoise = (passedFrame: number) => {
+          if (passedFrame === 9) {
+            frame = 0;
+          } else {
+            frame++;
+          }
+
+          ctx.putImageData(noiseData[frame], 0, 0);
+        };
+
+        // Loop
+        const loop = () => {
+          paintNoise(frame);
+
+          loopTimeout = window.setTimeout(() => {
+            window.requestAnimationFrame(loop);
+          }, 1000 / 25);
+        };
+
+        // Setup
+        const setup = () => {
+          wWidth = window.innerWidth;
+          wHeight = window.innerHeight;
+
+          canvas.width = wWidth;
+          canvas.height = wHeight;
+
+          for (let i = 0; i < 10; i++) {
+            createNoise();
+          }
+
+          loop();
+        };
+
+        // Init
+        const init = () => {
+          if (document.getElementById("noise") instanceof HTMLCanvasElement) {
+            canvas = document.getElementById("noise") as HTMLCanvasElement;
+            ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
+            setup();
+          }
+        };
+
+        init();
+      };
+
+      noise();
+    </script>
   </body>
 </html>

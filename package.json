@@ -1,5 +1,5 @@
 {
-  "name": "@astro/site",
+  "name": "@astro/portfolio",
   "version": "0.0.1",
   "private": true,
   "browserslist": [
@@ -14,9 +14,9 @@
   },
   "devDependencies": {
     "@astrojs/react": "^1.0.0",
-    "astro": "^1.0.5",
+    "astro": "^1.0.6",
     "autoprefixer": "^10.4.8",
-    "open-props": "^1.4.12",
+    "open-props": "^1.4.13",
     "postcss-jit-props": "^1.0.7",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.5.0",

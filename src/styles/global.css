@@ -4,11 +4,11 @@
     Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   --font-headings: var(--font-main);
   /* font-sizes */
-  --fs-small: var(--font-size-0);
-  --fs-regular: var(--font-size-1);
-  --fs-large: var(--font-size-3);
-  --fs-xl: var(--font-size-4);
-  --fs-2xl: var(--font-size-5);
+  --fs-small: var(--font-size-0); /* .75rem */
+  --fs-regular: var(--font-size-1); /* 1rem - 16px */
+  --fs-large: var(--font-size-3); /* 1.25rem */
+  --fs-xl: var(--font-size-4); /* 1.5rem */
+  --fs-2xl: var(--font-size-5); /* 2rem */
   /* fluid font-sizes */
   --fs-f-regular: var(--font-size-fluid-1);
   --fs-f-large: var(--font-size-fluid-2);
@@ -19,11 +19,14 @@
   --c-bg-alt: hsl(270, 94%, 12%);
   --c-text: hsl(240, 20%, 99%);
   --c-text-alt: hsl(0, 0%, 0%);
-  --c-muted: hsl(0, 0%, 60%);
+  --c-muted: hsl(0, 0%, 60%); /* or #a19cb0 */
   --c-light: hsl(271, 35%, 70%);
   --c-grayscale: hsl(240, 20%, 99%); /* black or white */
   --c-accent1: hsl(260, 100%, 58%);
   --c-accent2: hsl(270, 94%, 12%);
+
+  --container: calc(100vw - 1rem);
+  --container-w-large: min(90%, 71.25rem);
 }
 
 html {
@@ -40,7 +43,7 @@ body {
 
 h1 {
   font-size: var(--fs-f-xl);
-  font-weight: var(--font-weight-9);
+  font-weight: var(--font-weight-8);
 }
 
 h2 {

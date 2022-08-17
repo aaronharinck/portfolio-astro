@@ -1,0 +1,197 @@
+---
+// Access images in `src/assets/images/`
+
+import heroImageDefault from "@assets/images/hero-image-default.jpg";
+const imageBaseUrl =
+  "https://aaron-cfp.imgix.net/_main/hero-image-high.jpg?auto=compress,format";
+---
+
+<img
+  src={heroImageDefault}
+  alt="Aaron looking up and pondering inside a cave"
+  class="clip-image"
+  width="400"
+  height="494"
+  title="Bits and bytes"
+  sizes="(max-width: 47.9375em) 80vw,
+        (min-width: 48em) 45vw, 
+        80vw"
+  srcset={`
+          ${imageBaseUrl}&w=400 400w,
+          ${imageBaseUrl}&w=500 500w,
+          ${imageBaseUrl}&w=600 600w,
+          ${imageBaseUrl}&w=700 700w,
+          ${imageBaseUrl}&w=800 800w,
+          ${imageBaseUrl}&w=900 900w,
+          ${imageBaseUrl}&w=1000 1000w,
+          ${imageBaseUrl}&w=1200 1200w,
+          ${imageBaseUrl}&w=1400 1400w,
+          ${imageBaseUrl}&w=1600 1600w,
+          ${imageBaseUrl}&w=1800 1800w
+          `}
+/>
+
+<style>
+  .clip-image {
+    margin-inline: auto;
+    margin-block: var(--size-7);
+    width: 80%;
+    height: auto;
+
+    /* animation */
+    animation-name: imgClipAnim;
+    animation-duration: 10s;
+    animation-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+    animation-iteration-count: infinite;
+    border-radius: var(--radius-3) var(--radius-4) var(--radius-3)
+      var(--radius-3);
+  }
+
+  @media (min-width: 48em) {
+    .clip-image {
+      margin-inline-end: 0;
+    }
+  }
+
+  @keyframes imgClipAnim {
+    from {
+      /* filled */
+      background: var(--c-grayscale);
+      clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+    }
+    20% {
+      /* zero filled */
+      background: var(--c-accent2);
+      clip-path: polygon(
+        0% 0%,
+        0% 100%,
+        40% 100%,
+        40% 50%,
+        60% 50%,
+        60% 50%,
+        40% 50%,
+        40% 100%,
+        100% 100%,
+        100% 0%
+      );
+    }
+    25% {
+      /* zero */
+      clip-path: polygon(
+        0% 0%,
+        0% 100%,
+        40% 100%,
+        40% 25%,
+        60% 25%,
+        60% 75%,
+        40% 75%,
+        40% 100%,
+        100% 100%,
+        100% 0%
+      );
+    }
+    40% {
+      /* zero sustained */
+      background: var(--c-accent1);
+      clip-path: polygon(
+        0% 0%,
+        0% 100%,
+        40% 100%,
+        40% 25%,
+        60% 25%,
+        60% 75%,
+        40% 75%,
+        40% 100%,
+        100% 100%,
+        100% 0%
+      );
+    }
+    45% {
+      /* zero filled */
+      clip-path: polygon(
+        0% 0%,
+        0% 100%,
+        40% 100%,
+        40% 50%,
+        60% 50%,
+        60% 50%,
+        40% 50%,
+        40% 100%,
+        100% 100%,
+        100% 0%
+      );
+    }
+    50% {
+      /* filled */
+      background: #var(--c-accent2);
+      clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+    }
+    54% {
+      /* half */
+      clip-path: polygon(65% 0, 100% 0%, 100% 100%, 65% 100%);
+    }
+    55% {
+      /* one half*/
+      clip-path: polygon(
+        65% 100%,
+        100% 100%,
+        100% 0%,
+        65% 0,
+        65% 0,
+        65% 30%,
+        65% 30%
+      );
+    }
+    60% {
+      /* one */
+      background: var(--c-accent1);
+      clip-path: polygon(
+        65% 100%,
+        100% 100%,
+        100% 0%,
+        65% 0,
+        30% 25%,
+        30% 50%,
+        65% 30%
+      );
+    }
+    70% {
+      /* one sustained */
+      clip-path: polygon(
+        65% 100%,
+        100% 100%,
+        100% 0%,
+        65% 0,
+        30% 25%,
+        30% 50%,
+        65% 30%
+      );
+    }
+    74% {
+      /* one half */
+      clip-path: polygon(
+        65% 100%,
+        100% 100%,
+        100% 0%,
+        65% 0,
+        65% 0,
+        65% 30%,
+        65% 30%
+      );
+    }
+    75% {
+      /* half */
+      clip-path: polygon(65% 0, 100% 0%, 100% 100%, 65% 100%);
+    }
+    80% {
+      /* filled */
+      background: var(--c-accent2);
+      clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+    }
+    to {
+      /* filled sustained */
+      background: var(--c-accent1);
+      clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+    }
+  }
+</style>

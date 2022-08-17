@@ -1,98 +1,165 @@
 ---
-import Layout from '@layouts/BaseLayout.astro';
-import Card from '@components/Card.astro';
-
-const welcomeToName = "Astro";
+import Layout from "@layouts/BaseLayout.astro";
+import Card from "@components/Card.astro";
+import MovingPicture from "@components/MovingPicture.astro";
 ---
 
-<Layout title="Welcome to Astro!">
-	<main>
-		<h1>Welcome to <span class="text-gradient">{welcomeToName}!</span></h1>
-		<p class="instructions">
-			Check out the <code>src/pages</code> directory to get started.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Chat"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
+<Layout
+  title="Aaron Harinck | Creative developer portfolio"
+  description="Looking to hire a creative website developer / digital marketeer? Aaron develops and designs digital front-end solutions."
+>
+  <main>
+    <div class="intro">
+      <header class="intro-header">
+        <div class="intro-header-text">
+          <h1>
+            <span class="title--small">Aaron Harinck.</span>
+            <span class="text-gradient">Creative</span> front-end developer, based
+            in Belgium
+          </h1>
+          <p class="intro-text">
+            I create kick-ass websites & apps, from design to code
+          </p>
+          <div class="buttons-wrapper">
+            <a href="#contact" class="btn btn-link">Get in touch</a>
+            <a href="#about" class="btn btn-text btn-muted">Scroll for more</a>
+          </div>
+        </div>
+        <div class="intro-header-img">
+          <MovingPicture />
+        </div>
+      </header>
+    </div>
+
+    <ul role="list" class="link-card-grid">
+      <Card
+        href="https://docs.astro.build/"
+        title="Documentation"
+        body="Learn how Astro works and explore the official API docs."
+      />
+      <Card
+        href="https://astro.build/integrations/"
+        title="Integrations"
+        body="Supercharge your project with new frameworks and libraries."
+      />
+      <Card
+        href="https://astro.build/themes/"
+        title="Themes"
+        body="Explore a galaxy of community-built starter themes."
+      />
+      <Card
+        href="https://astro.build/chat/"
+        title="Chat"
+        body="Come say hi to our amazing Discord community. ❤️"
+      />
+    </ul>
+  </main>
 </Layout>
 
 <style>
-	:root {
-		--astro-gradient: linear-gradient(0deg, #4f39fa, #da62c4);
-	}
+  :root {
+    --letter-gradient: linear-gradient(20deg, var(--c-accent1), var(--grape-4));
+  }
 
-	h1 {
-		margin: 2rem 0;
-	}
+  main {
+    margin: auto;
+    padding: var(--size-fluid-2);
+  }
 
-	main {
-		margin: auto;
-		padding: 1em;
-		max-width: 60ch;
-	}
+  h1 {
+    margin: 2rem 0;
+    max-width: var(--size-content-1);
+  }
 
-	.text-gradient {
-		font-weight: 900;
-		background-image: var(--astro-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 100% 200%;
-		background-position-y: 100%;
-		border-radius: 0.4rem;
-		animation: pulse 4s ease-in-out infinite;
-	}
+  .title--small {
+    font-size: var(--fs-f-regular);
+    display: block;
+    color: var(--c-muted);
+  }
 
-	@keyframes pulse {
-		0%,
-		100% {
-			background-position-y: 0%;
-		}
-		50% {
-			background-position-y: 80%;
-		}
-	}
+  .text-gradient {
+    font-weight: var(--font-weight-8);
+    background-image: var(--letter-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 100% 200%;
+    background-position-y: 100%;
+    animation: pulse 4s ease-in-out infinite;
+  }
 
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		background: #4f39fa;
-		padding: 1rem;
-		border-radius: 0.4rem;
-		color: var(--color-bg);
-	}
+  .intro-text {
+    line-height: 1.6;
+    margin: var(--size-1) 0;
+    padding: var(--size-1);
+    font-size: var(--fs-large);
+  }
 
-	.instructions code {
-		font-size: 0.875em;
-		border: 0.1em solid var(--color-border);
-		border-radius: 4px;
-		padding: 0.15em 0.25em;
-	}
+  .buttons-wrapper {
+    margin-block: var(--size-6);
+    display: flex;
+    gap: var(--size-8);
+  }
 
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
+  /* buttons */
+  .btn {
+    padding: var(--size-3);
+    display: inline-block;
+    font-size: var(--fs-large);
+  }
+
+  a.btn {
+    text-decoration: none;
+    color: var(--c-text);
+  }
+  .btn.btn-link {
+    background-color: var(--c-accent1);
+    font-weight: var(--font-weight-6);
+    border-radius: var(--radius-2) var(--radius-3) var(--radius-2)
+      var(--radius-2);
+  }
+
+  .btn.btn-muted {
+    color: var(--c-muted);
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      background-position-y: 0%;
+    }
+    50% {
+      background-position-y: 80%;
+    }
+  }
+
+  @media (min-width: 48em) {
+    .intro-header {
+      display: flex;
+      gap: 2rem;
+      justify-content: space-between;
+      align-items: center;
+      max-inline-size: var(--container-w-large);
+      margin-inline: auto;
+    }
+
+    .intro-text {
+      max-width: var(--size-content-1);
+    }
+
+    .intro-header-text {
+      flex: 4;
+    }
+
+    .intro-header-img {
+      flex: 3;
+    }
+  }
+
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 1rem;
+    padding: 0;
+    color: var(--c-accent1);
+  }
 </style>

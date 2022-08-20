@@ -21,14 +21,65 @@ import MovingPicture from "@components/MovingPicture.astro";
             I create kick-ass websites & apps, from design to code
           </p>
           <div class="buttons-wrapper">
-            <a href="#contact" class="btn btn-link">Get in touch</a>
-            <a href="#about" class="btn btn-text btn-muted">Scroll for more</a>
+            <a href="#contact" class="btn btn-link btn-primary">Get in touch</a>
+            <a href="#about" class="btn btn-text btn-muted btn-icon">
+              Scroll for more
+              <svg class="icon icon-down">
+                <use xlink:href="sprite.svg#arrow-down"></use>
+              </svg>
+            </a>
           </div>
         </div>
         <div class="intro-header-img">
           <MovingPicture />
         </div>
       </header>
+      <div class="experience-banner">
+        <h2 class="experience-title">Work experience</h2>
+        <div class="experience-logos">
+          <a
+            href="https://studiohyperdrive.be/"
+            target="_blank"
+            rel="noreferer noopener"
+          >
+            <svg class="exp-logo" role="img">
+              <title>Studio Hyperdrive</title>
+              <use xlink:href="sprite.svg#logo-shd"></use>
+            </svg>
+          </a>
+
+          <a
+            href="https://www.wiseo.be/"
+            target="_blank"
+            rel="noreferer noopener"
+          >
+            <svg class="exp-logo" role="img">
+              <title>Wiseo</title>
+              <use xlink:href="sprite.svg#logo-wiseo"></use>
+            </svg>
+          </a>
+          <a
+            href="https://superkraft.be/"
+            target="_blank"
+            rel="noreferer noopener"
+          >
+            <svg class="exp-logo" role="img">
+              <title>Superkraft</title>
+              <use xlink:href="sprite.svg#logo-superkraft"></use>
+            </svg>
+          </a>
+          <a
+            href="https://www.durf2030.eu/"
+            target="_blank"
+            rel="noreferer noopener"
+          >
+            <svg class="exp-logo" role="img">
+              <title lang="nl">Stad Kortrijk - Durf2030</title>
+              <use xlink:href="sprite.svg#logo-stad-kortrijk"></use>
+            </svg>
+          </a>
+        </div>
+      </div>
     </div>
 
     <ul role="list" class="link-card-grid">
@@ -84,7 +135,7 @@ import MovingPicture from "@components/MovingPicture.astro";
     -webkit-text-fill-color: transparent;
     background-size: 100% 200%;
     background-position-y: 100%;
-    animation: pulse 4s ease-in-out infinite;
+    animation: pulse 3.3s ease-in-out infinite;
   }
 
   .intro-text {
@@ -105,6 +156,7 @@ import MovingPicture from "@components/MovingPicture.astro";
     padding: var(--size-3);
     display: inline-block;
     font-size: var(--fs-large);
+    transition: 0.3s transform ease, 0.3s background-color ease;
   }
 
   a.btn {
@@ -112,14 +164,72 @@ import MovingPicture from "@components/MovingPicture.astro";
     color: var(--c-text);
   }
   .btn.btn-link {
-    background-color: var(--c-accent1);
     font-weight: var(--font-weight-6);
     border-radius: var(--radius-2) var(--radius-3) var(--radius-2)
       var(--radius-2);
   }
 
+  .btn.btn-primary {
+    background-color: var(--c-accent1);
+    border: var(--size-1) solid var(--c-accent1);
+  }
+  .btn.btn-primary:hover {
+    background-color: var(--c-text);
+    color: var(--c-accent1);
+    transform: scale3d(1.1, 1.1, 1);
+  }
+
   .btn.btn-muted {
     color: var(--c-muted);
+  }
+
+  /* icons */
+  .btn.btn-icon {
+    display: flex;
+    gap: var(--size-2);
+    align-items: center;
+  }
+  .btn .icon {
+    height: 16px;
+    width: 16px;
+    transition: 0.3s transform ease;
+  }
+  .btn:hover .icon {
+    transform: translateY(var(--size-1));
+  }
+
+  .btn .icon-down {
+    transition: 0.3s transform cubic-bezier(0.47, 0.48, 0.39, 2.16);
+  }
+  /* experience */
+
+  .experience-banner {
+    max-width: min(90%, 60rem);
+    margin-inline: auto;
+    margin-block: var(--size-8);
+    text-align: center;
+    color: var(--c-muted);
+  }
+  .experience-title {
+    font-size: var(--fs-regular);
+    margin-block-end: var(--size-6);
+  }
+  .experience-logos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--size-8);
+  }
+  .experience-logos .exp-logo {
+    fill: var(--c-muted);
+    color: var(--c-muted);
+    width: var(--size-12);
+    max-height: var(--size-8);
+    transition: 0.3s color ease, 0.3s all ease;
+  }
+  .exp-logo:hover {
+    fill: var(--c-text);
+    color: var(--c-text);
   }
 
   @keyframes pulse {

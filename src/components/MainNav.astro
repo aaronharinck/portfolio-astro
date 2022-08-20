@@ -1,5 +1,5 @@
-<nav>
-  <div class="container nav-container">
+<header>
+  <nav class="container nav-container">
     <a href="/" class="logo-link" aria-label="Go to homepage">
       <svg
         width="55"
@@ -19,7 +19,7 @@
         id="menu-btn"
         aria-expanded="false"
         aria-controls="menu"
-        aria-label="Open mobile nav"
+        aria-label="mobile nav toggle"
         role="button"
       >
         <div class="nav-hamburger__icon"></div>
@@ -49,8 +49,8 @@
         </li>
       </ul>
     </div>
-  </div>
-</nav>
+  </nav>
+</header>
 
 <style>
   /* automaticaly scoped to MainNav component by Astro*/
@@ -77,8 +77,8 @@
   .logo-link:focus-visible,
   .nav-link:focus-visible {
     outline: 4px solid var(--c-accent1);
-    outline-offset: 0.2em;
-    border-radius: 0.5rem;
+    outline-offset: 0.3em;
+    border-radius: var(--radius-2);
   }
 
   .nav-links {
@@ -86,12 +86,13 @@
     align-items: center;
     flex-direction: column;
     justify-content: space-evenly;
-    gap: 1.5rem;
+    gap: var(--size-5);
     position: fixed;
     z-index: 10;
     inset: 0;
     background-color: var(--c-accent2);
-    padding: 5.5rem 1.5rem 2.5rem 1.5rem;
+    padding-block: 5.5rem 2.5rem;
+    padding-inline: var(--size-5);
     border-bottom: 4px solid var(--c-accent1);
     text-align: center;
     transform: translate3d(100%, 0, 0);
@@ -170,7 +171,16 @@
   }
 
   /* media querries */
-  @media (min-width: 768px) {
+  @media (min-width: 48em) {
+    nav {
+      padding-inline: unset;
+    }
+
+    .nav-container {
+      max-width: var(--container-w-large);
+      margin-inline: auto;
+    }
+
     .btn--menu {
       display: none;
     }
@@ -183,6 +193,7 @@
       padding: 0;
       inset: 0;
       background-color: transparent;
+      gap: var(--size-fluid-3);
     }
 
     .btn--menu[aria-expanded="true"] + .nav-links {
@@ -219,7 +230,7 @@
     }
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 47.9375em) {
     /* Safari only ATM https://caniuse.com/css-has */
     @supports (selector(:has(p))) {
       /* Supported! */

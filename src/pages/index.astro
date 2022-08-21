@@ -82,28 +82,85 @@ import MovingPicture from "@components/MovingPicture.astro";
       </div>
     </div>
 
-    <ul role="list" class="link-card-grid">
-      <Card
-        href="https://docs.astro.build/"
-        title="Documentation"
-        body="Learn how Astro works and explore the official API docs."
-      />
-      <Card
-        href="https://astro.build/integrations/"
-        title="Integrations"
-        body="Supercharge your project with new frameworks and libraries."
-      />
-      <Card
-        href="https://astro.build/themes/"
-        title="Themes"
-        body="Explore a galaxy of community-built starter themes."
-      />
-      <Card
-        href="https://astro.build/chat/"
-        title="Chat"
-        body="Come say hi to our amazing Discord community. ❤️"
-      />
-    </ul>
+    <section id="about">
+      <div class="about-container">
+        <h2 class="sr-only">About me</h2>
+        <p class="about-text-main">
+          Hello! I'm Aaron, an easy-going
+          <a
+            href="https://www.devine.be/en/"
+            target="_blank"
+            rel="noopener noreferer"
+            class="custom-underline"
+            >digital design & development (Devine)
+          </a>
+          and
+          <a
+            href="https://www.arteveldehogeschool.be/opleidingen/postgraduaat/digital-marketing-communication"
+            target="_blank"
+            rel="noopener noreferer"
+            class="custom-underline"
+          >
+            digital marketing & communication
+          </a> graduate.
+          <br />
+          I develop custom digital experiences and solutions that are responsive,
+          accessible, and SEO friendly.
+        </p>
+        <p class="about-text-sub">
+          I also use data and competitor analysis to research and optimize
+          customer conversions, and guide clients towards growth.
+        </p>
+        <a href="/about" class="btn btn-text btn-icon btn-light bold">
+          Learn more about me
+          <svg class="icon icon-right">
+            <use xlink:href="sprite.svg#arrow-n-right"></use>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>My skills include...</h2>
+    </section>
+
+    <section id="projects">
+      <h2>Highlighted projects</h2>
+    </section>
+
+    <section id="posts">
+      <h2>Posts & more</h2>
+    </section>
+
+    <section id="contact">
+      <h2>Get in touch</h2>
+    </section>
+
+    <section>
+      <h2 class="card">Cards</h2>
+      <ul role="list" class="link-card-grid">
+        <Card
+          href="https://docs.astro.build/"
+          title="Documentation"
+          body="Learn how Astro works and explore the official API docs."
+        />
+        <Card
+          href="https://astro.build/integrations/"
+          title="Integrations"
+          body="Supercharge your project with new frameworks and libraries."
+        />
+        <Card
+          href="https://astro.build/themes/"
+          title="Themes"
+          body="Explore a galaxy of community-built starter themes."
+        />
+        <Card
+          href="https://astro.build/chat/"
+          title="Chat"
+          body="Come say hi to our amazing Discord community. ❤️"
+        />
+      </ul>
+    </section>
   </main>
 </Layout>
 
@@ -115,6 +172,7 @@ import MovingPicture from "@components/MovingPicture.astro";
   main {
     margin: auto;
     padding: var(--size-fluid-2);
+    background-color: var(--c-bg);
   }
 
   h1 {
@@ -140,8 +198,7 @@ import MovingPicture from "@components/MovingPicture.astro";
 
   .intro-text {
     line-height: 1.6;
-    margin: var(--size-1) 0;
-    padding: var(--size-1);
+    padding-block: var(--size-4);
     font-size: var(--fs-large);
   }
 
@@ -155,32 +212,37 @@ import MovingPicture from "@components/MovingPicture.astro";
   .btn {
     padding: var(--size-3);
     display: inline-block;
-    font-size: var(--fs-large);
+
     transition: 0.3s transform ease, 0.3s background-color ease;
   }
-
-  a.btn {
+  a.btn,
+  a.btn-text {
     text-decoration: none;
     color: var(--c-text);
   }
-  .btn.btn-link {
+  .btn.btn-text {
+    padding: var(--size-3) 0;
+    font-size: var(--fs-large);
+  }
+  .btn.btn-primary {
+    background-color: var(--c-accent1);
+    font-size: var(--fs-large);
     font-weight: var(--font-weight-6);
+    border: var(--size-1) solid var(--c-accent1);
     border-radius: var(--radius-2) var(--radius-3) var(--radius-2)
       var(--radius-2);
   }
-
-  .btn.btn-primary {
-    background-color: var(--c-accent1);
-    border: var(--size-1) solid var(--c-accent1);
-  }
-  .btn.btn-primary:hover {
-    background-color: var(--c-text);
-    color: var(--c-accent1);
+  .btn.btn-primary:hover,
+  .btn.btn-primary:focus-visible {
+    background-color: var(--c-accent2);
     transform: scale3d(1.1, 1.1, 1);
   }
 
-  .btn.btn-muted {
+  .btn-text.btn-muted {
     color: var(--c-muted);
+  }
+  .btn-text.btn-light {
+    color: var(--c-light);
   }
 
   /* icons */
@@ -190,19 +252,22 @@ import MovingPicture from "@components/MovingPicture.astro";
     align-items: center;
   }
   .btn .icon {
-    height: 16px;
-    width: 16px;
-    transition: 0.3s transform ease;
-  }
-  .btn:hover .icon {
-    transform: translateY(var(--size-1));
-  }
-
-  .btn .icon-down {
+    height: var(--size-5);
+    width: var(--size-5);
     transition: 0.3s transform cubic-bezier(0.47, 0.48, 0.39, 2.16);
   }
-  /* experience */
+  .btn .icon-down {
+    height: var(--size-3);
+    width: var(--size-3);
+  }
+  .btn:hover .icon-down {
+    transform: translateY(var(--size-1));
+  }
+  .btn:hover .icon-right {
+    transform: translateX(var(--size-2));
+  }
 
+  /* experience */
   .experience-banner {
     max-width: min(90%, 60rem);
     margin-inline: auto;
@@ -227,9 +292,51 @@ import MovingPicture from "@components/MovingPicture.astro";
     max-height: var(--size-8);
     transition: 0.3s color ease, 0.3s all ease;
   }
-  .exp-logo:hover {
+  .exp-logo:hover,
+  .experience-logos:focus-visible a:focus-visible {
     fill: var(--c-text);
     color: var(--c-text);
+  }
+
+  /* about */
+  .about-container {
+    margin-block: var(--size-11);
+    padding-block: var(--size-3);
+    max-inline-size: min(65ch, 95%);
+    margin-inline: auto;
+  }
+  .about-text-main {
+    font-size: var(--fs-xl);
+    font-weight: var(--font-weight-6);
+    line-height: var(--font-lineheight-4);
+  }
+
+  .about-text-sub {
+    max-inline-size: var(--size-content-2);
+    margin-block: var(--size-7);
+  }
+
+  /* about underline */
+  /* hover line animation */
+  a.custom-underline {
+    text-decoration: none;
+    color: var(--c-light);
+    font-style: italic;
+    padding-bottom: var(--size-2);
+    transition: all 0.3s ease;
+    background-image: linear-gradient(
+      to left,
+      var(--c-accent1),
+      var(--c-accent1)
+    );
+    background-size: 0 var(--size-1);
+    background-repeat: no-repeat;
+    background-position: left 100%;
+  }
+
+  a.custom-underline:hover,
+  a.custom-underline:focus-visible {
+    background-size: 100% var(--size-1);
   }
 
   @keyframes pulse {

@@ -141,4 +141,15 @@
     color: var(--c-light);
     margin-block-start: var(--size-2);
   }
+
+  @media (min-width: 48em) {
+    .skills-container {
+      padding-block: var(--size-11);
+    }
+    .skills-types-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(14.5rem, 1fr));
+      gap: var(--size-8);
+    }
+  }
 </style>

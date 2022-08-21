@@ -45,7 +45,9 @@
           </a>
         </li>
         <li role="none">
-          <a role="menuitem" href="#" class="nav-link btn btn--accent"> CV</a>
+          <a role="menuitem" href="#" class="nav-link btn btn--accent">
+            CV / Resume
+          </a>
         </li>
       </ul>
     </div>
@@ -104,6 +106,11 @@
     padding: var(--size-3) var(--size-5);
     border-radius: var(--radius-2) var(--radius-3) var(--radius-2)
       var(--radius-2);
+    transition: 0.3s background-color ease;
+    border: var(--size-1) solid var(--c-accent1);
+  }
+  .btn--accent:hover {
+    background-color: var(--c-accent2);
   }
 
   li[role="none"],

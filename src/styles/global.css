@@ -34,11 +34,12 @@ html {
   font-weight: var(--font-weight-4);
   font-size: var(--fs-regular);
   color: var(--c-text);
-  background-color: var(--c-bg);
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
+  background-color: var(--c-bg);
 }
 
 h1 {
@@ -57,4 +58,21 @@ h5,
 h6 {
   font-size: var(--fs-f-regular);
   font-weight: var(--font-weight-4);
+}
+
+/* text only visible for screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.bold {
+  font-weight: var(--font-weight-6);
 }

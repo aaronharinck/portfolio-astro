@@ -15,8 +15,8 @@
     </a>
     <div class="nav-wrapper">
       <div
-        class="nav-hamburger btn btn--menu"
-        id="menu-btn"
+        class="nav-hamburger navbtn navbtn--menu"
+        id="menu-navbtn"
         aria-expanded="false"
         aria-controls="menu"
         aria-label="mobile nav toggle"
@@ -28,24 +28,30 @@
         <li role="none">
           <a
             role="menuitem"
-            href="about.html"
-            class="nav-link btn custom-underline"
+            href="#about"
+            class="nav-link navbtn custom-underline"
           >
             About
           </a>
         </li>
         <li role="none">
-          <a role="menuitem" href="#" class="nav-link btn custom-underline"
+          <a
+            role="menuitem"
+            href="#projects"
+            class="nav-link navbtn custom-underline"
             >Work
           </a>
         </li>
         <li role="none">
-          <a role="menuitem" href="#" class="nav-link btn custom-underline"
+          <a
+            role="menuitem"
+            href="#contact"
+            class="nav-link navbtn custom-underline"
             >Contact
           </a>
         </li>
         <li role="none">
-          <a role="menuitem" href="#" class="nav-link btn btn--accent">
+          <a role="menuitem" href="#" class="nav-link navbtn navbtn--accent">
             CV / Resume
           </a>
         </li>
@@ -101,7 +107,7 @@
     transition: transform 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
   }
 
-  .btn--accent {
+  .navbtn--accent {
     background-color: var(--c-accent1);
     padding: var(--size-3) var(--size-5);
     border-radius: var(--radius-2) var(--radius-3) var(--radius-2)
@@ -109,7 +115,7 @@
     transition: 0.3s background-color ease;
     border: var(--size-1) solid var(--c-accent1);
   }
-  .btn--accent:hover {
+  .navbtn--accent:hover {
     background-color: var(--c-accent2);
   }
 
@@ -124,7 +130,7 @@
     font-weight: var(--font-weight-6);
   }
 
-  .btn--menu[aria-expanded="true"] + .nav-links {
+  .navbtn--menu[aria-expanded="true"] + .nav-links {
     transform: translate3d(0, 0, 0);
     height: 100vh;
   }
@@ -166,14 +172,14 @@
     transform: translateY(16px);
   }
   /* Hamburger icon animation */
-  .btn--menu[aria-expanded="true"] > .nav-hamburger__icon {
+  .navbtn--menu[aria-expanded="true"] > .nav-hamburger__icon {
     transform: translateX(-50px);
     background-color: transparent;
   }
-  .btn--menu[aria-expanded="true"] .nav-hamburger__icon::before {
+  .navbtn--menu[aria-expanded="true"] .nav-hamburger__icon::before {
     transform: rotate(45deg) translate(35px, -35px);
   }
-  .btn--menu[aria-expanded="true"] > .nav-hamburger__icon::after {
+  .navbtn--menu[aria-expanded="true"] > .nav-hamburger__icon::after {
     transform: rotate(-45deg) translate(35px, 35px);
   }
 
@@ -188,7 +194,7 @@
       margin-inline: auto;
     }
 
-    .btn--menu {
+    .navbtn--menu {
       display: none;
     }
     .nav-links {
@@ -203,7 +209,7 @@
       gap: var(--size-fluid-3);
     }
 
-    .btn--menu[aria-expanded="true"] + .nav-links {
+    .navbtn--menu[aria-expanded="true"] + .nav-links {
       height: unset;
     }
 
@@ -241,7 +247,7 @@
     /* Safari only ATM https://caniuse.com/css-has */
     @supports (selector(:has(p))) {
       /* Supported! */
-      body.stop-scrolling:has(.btn--menu[aria-expanded="true"]) {
+      body.stop-scrolling:has(.navbtn--menu[aria-expanded="true"]) {
         height: 100%;
         overflow: hidden;
       }
@@ -257,14 +263,17 @@
 </style>
 
 <script>
-  const navBtn: HTMLElement | null = document.querySelector("#menu-btn");
-  if (navBtn instanceof HTMLElement && navBtn.hasAttribute("aria-expanded")) {
-    navBtn.addEventListener("click", () => {
+  const navnavbtn: HTMLElement | null = document.querySelector("#menu-navbtn");
+  if (
+    navnavbtn instanceof HTMLElement &&
+    navnavbtn.hasAttribute("aria-expanded")
+  ) {
+    navnavbtn.addEventListener("click", () => {
       const prevExpandedState: boolean = JSON.parse(
-        navBtn.getAttribute("aria-expanded")!
+        navnavbtn.getAttribute("aria-expanded")!
       );
       const isExpanded = !prevExpandedState;
-      navBtn.setAttribute("aria-expanded", isExpanded.toString());
+      navnavbtn.setAttribute("aria-expanded", isExpanded.toString());
 
       // disable scroll using css
       if (isExpanded && document.querySelector("body") !== null) {

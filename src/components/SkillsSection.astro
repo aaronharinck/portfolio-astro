@@ -1,0 +1,144 @@
+---
+---
+
+<section id="skills">
+  <div class="skills-container">
+    <h2 class="skills-title">My skills include...</h2>
+
+    <ul class="skills-types-list">
+      <li class="skills-type-list">
+        <svg class="skills-image">
+          <use xlink:href="sprite.svg#terminal"></use>
+        </svg>
+        <div class="skills-line"></div>
+        <h3 class="skills-subtitle">Tech</h3>
+        <ul class="skills-list">
+          <li class="skills-list-item">ES6+ JavaScript</li>
+          <li class="skills-list-item">React</li>
+          <li class="skills-list-item">Vue 3</li>
+          <li class="skills-list-item">HTML5 / CSS</li>
+          <li class="skills-list-item">Git</li>
+          <li class="skills-list-item">TypeScript</li>
+          <li class="skills-list-item">Continious Deployment</li>
+          <li class="skills-list-item">Webflow</li>
+        </ul>
+      </li>
+
+      <li class="skills-type-list">
+        <svg class="skills-image">
+          <use xlink:href="sprite.svg#color-swatch"></use>
+        </svg>
+        <div class="skills-line"></div>
+        <h3 class="skills-subtitle">Design</h3>
+        <ul class="skills-list">
+          <li class="skills-list-item">Adobe Creative Suite</li>
+          <li class="skills-list-item">Figma</li>
+          <li class="skills-list-item">Sketch</li>
+          <li class="skills-list-item">UI / UX</li>
+          <li class="skills-list-item">Typography</li>
+          <li class="skills-list-item">Motion Graphics / Cinema 4D</li>
+          <li class="skills-list-item">Branding</li>
+        </ul>
+      </li>
+
+      <li class="skills-type-list">
+        <svg class="skills-image">
+          <use xlink:href="sprite.svg#users"></use>
+        </svg>
+        <div class="skills-line"></div>
+        <h3 class="skills-subtitle">Digital Marketing</h3>
+        <ul class="skills-list">
+          <li class="skills-list-item">SEO</li>
+          <li class="skills-list-item">Digital strategy</li>
+          <li class="skills-list-item">Google Analytics</li>
+          <li class="skills-list-item">Conversion Rate Optimization</li>
+          <li class="skills-list-item">Search Engine Advertising</li>
+        </ul>
+      </li>
+
+      <li class="skills-type-list">
+        <svg class="skills-image">
+          <use xlink:href="sprite.svg#briefcase"></use>
+        </svg>
+        <div class="skills-line"></div>
+        <h3 class="skills-subtitle">Workplace</h3>
+        <ul class="skills-list">
+          <li class="skills-list-item">Team player</li>
+          <li class="skills-list-item">Critical thinking</li>
+          <li class="skills-list-item">Problem solving</li>
+          <li class="skills-list-item">Willingness to learn</li>
+          <li class="skills-list-item">Familiar with Agile / Scrum</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  /* skills */
+  .skills-container {
+    max-inline-size: var(--container-w-large);
+    margin-inline: auto;
+    padding-block: var(--size-8);
+  }
+  .skills-title {
+    color: var(--c-light);
+    margin-block: var(--size-8);
+  }
+  .skills-types-list,
+  .skills-list {
+    list-style-type: none;
+    padding-inline-start: 0;
+    line-height: var(--font-lineheight-3);
+  }
+  .skills-types-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-11);
+  }
+
+  .skills-subtitle {
+    font-size: var(--fs-xl);
+    font-weight: var(--font-weight-6);
+  }
+
+  .skills-image {
+    background: var(--c-grayscale);
+    color: var(--c-accent1);
+    padding: var(--size-3);
+    width: var(--size-11);
+    height: var(--size-11);
+    border-radius: var(--radius-3);
+  }
+  .skills-line {
+    width: 100%;
+    height: var(--border-size-2);
+    background-color: var(--c-light);
+    position: relative;
+    margin-block: var(--size-7);
+  }
+  .skills-line::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: var(--c-grayscale);
+    border: var(--border-size-2) solid var(--c-light);
+    position: absolute;
+    top: -4px;
+    left: 0;
+  }
+  .skills-line::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: var(--c-grayscale);
+    border: var(--border-size-2) solid var(--c-light);
+    position: absolute;
+    top: -4px;
+    right: 0;
+  }
+  .skills-list {
+    color: var(--c-light);
+    margin-block-start: var(--size-2);
+  }
+</style>

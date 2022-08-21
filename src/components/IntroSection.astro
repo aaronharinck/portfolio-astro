@@ -1,0 +1,166 @@
+---
+import MovingPicture from "@components/MovingPicture.astro";
+---
+
+<div class="intro">
+  <header class="intro-header">
+    <div class="intro-header-text">
+      <h1>
+        <span class="title--small">Aaron Harinck.</span>
+        <span class="text-gradient">Creative</span> front-end developer, based in
+        Belgium
+      </h1>
+      <p class="intro-text">
+        I create kick-ass websites & apps, from design to code
+      </p>
+      <div class="buttons-wrapper">
+        <a href="#contact" class="btn btn-link btn-primary">Get in touch</a>
+        <a href="#about" class="btn btn-text btn-muted btn-icon">
+          Scroll for more
+          <svg class="icon icon-down">
+            <use xlink:href="sprite.svg#arrow-down"></use>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="intro-header-img">
+      <MovingPicture />
+    </div>
+  </header>
+  <div class="experience-banner">
+    <h2 class="experience-title">Work experience</h2>
+    <div class="experience-logos">
+      <a
+        href="https://studiohyperdrive.be/"
+        target="_blank"
+        rel="noreferer noopener"
+      >
+        <svg class="exp-logo" role="img">
+          <title>Studio Hyperdrive</title>
+          <use xlink:href="sprite.svg#logo-shd"></use>
+        </svg>
+      </a>
+
+      <a href="https://www.wiseo.be/" target="_blank" rel="noreferer noopener">
+        <svg class="exp-logo" role="img">
+          <title>Wiseo</title>
+          <use xlink:href="sprite.svg#logo-wiseo"></use>
+        </svg>
+      </a>
+      <a href="https://superkraft.be/" target="_blank" rel="noreferer noopener">
+        <svg class="exp-logo" role="img">
+          <title>Superkraft</title>
+          <use xlink:href="sprite.svg#logo-superkraft"></use>
+        </svg>
+      </a>
+      <a
+        href="https://www.durf2030.eu/"
+        target="_blank"
+        rel="noreferer noopener"
+      >
+        <svg class="exp-logo" role="img">
+          <title lang="nl">Stad Kortrijk - Durf2030</title>
+          <use xlink:href="sprite.svg#logo-stad-kortrijk"></use>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  :root {
+    --letter-gradient: linear-gradient(20deg, var(--c-accent1), var(--grape-4));
+  }
+
+  .title--small {
+    font-size: var(--fs-f-regular);
+    display: block;
+    color: var(--c-muted);
+  }
+
+  .text-gradient {
+    font-weight: var(--font-weight-8);
+    background-image: var(--letter-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 100% 200%;
+    background-position-y: 100%;
+    animation: pulse 3.3s ease-in-out infinite;
+  }
+
+  .intro-text {
+    line-height: 1.6;
+    padding-block: var(--size-4);
+    font-size: var(--fs-large);
+  }
+
+  .buttons-wrapper {
+    margin-block: var(--size-6);
+    display: flex;
+    gap: var(--size-8);
+  }
+
+  /* experience */
+  .experience-banner {
+    max-width: min(90%, 60rem);
+    margin-inline: auto;
+    margin-block: var(--size-8);
+    text-align: center;
+    color: var(--c-muted);
+  }
+  .experience-title {
+    font-size: var(--fs-regular);
+    margin-block-end: var(--size-6);
+  }
+  .experience-logos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--size-8);
+  }
+  .experience-logos .exp-logo {
+    fill: var(--c-muted);
+    color: var(--c-muted);
+    width: var(--size-12);
+    max-height: var(--size-8);
+    transition: 0.3s color ease, 0.3s all ease;
+  }
+  .exp-logo:hover,
+  .experience-logos:focus-visible a:focus-visible {
+    fill: var(--c-text);
+    color: var(--c-text);
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      background-position-y: 0%;
+    }
+    50% {
+      background-position-y: 80%;
+    }
+  }
+
+  @media (min-width: 48em) {
+    .intro-header {
+      display: flex;
+      gap: 2rem;
+      justify-content: space-between;
+      align-items: center;
+      max-inline-size: var(--container-w-large);
+      margin-inline: auto;
+    }
+
+    .intro-text {
+      max-width: var(--size-content-1);
+    }
+
+    .intro-header-text {
+      flex: 4;
+    }
+
+    .intro-header-img {
+      flex: 3;
+    }
+  }
+</style>

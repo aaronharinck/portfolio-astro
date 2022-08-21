@@ -1,0 +1,80 @@
+---
+---
+
+<section id="about">
+  <div class="about-container">
+    <h2 class="sr-only">About me</h2>
+    <p class="about-text-main">
+      Hello! I'm Aaron, an easy-going
+      <a
+        href="https://www.devine.be/en/"
+        target="_blank"
+        rel="noopener noreferer"
+        class="custom-underline"
+      >Digital Design & Development (Devine)<!----></a>
+      and
+      <a
+        href="https://www.arteveldehogeschool.be/opleidingen/postgraduaat/digital-marketing-communication"
+        target="_blank"
+        rel="noopener noreferer"
+        class="custom-underline"
+      >Digital Marketing & Communication<!----></a>
+      graduate.
+      <br />
+      I develop custom digital experiences and solutions that are responsive,
+      accessible, and SEO friendly.
+    </p>
+    <p class="about-text-sub">
+      I also use data and competitor analysis to research and optimize
+      customer conversions, and guide clients towards growth.
+    </p>
+    <a href="/about" class="btn btn-text btn-icon btn-light bold">
+      Learn more about me
+      <svg class="icon icon-right">
+        <use xlink:href="sprite.svg#arrow-n-right"></use>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<style>
+  /* about */
+  .about-container {
+    margin-block: var(--size-11);
+    padding-block: var(--size-3);
+    max-inline-size: min(65ch, 95%);
+    margin-inline: auto;
+  }
+  .about-text-main {
+    font-size: var(--fs-xl);
+    font-weight: var(--font-weight-6);
+    line-height: var(--font-lineheight-4);
+  }
+
+  .about-text-sub {
+    max-inline-size: var(--size-content-2);
+    margin-block: var(--size-7);
+  }
+
+  /* about underline */
+  /* hover line animation */
+  a.custom-underline {
+    text-decoration: none;
+    color: var(--c-light);
+    font-style: italic;
+    padding-bottom: var(--size-2);
+    transition: all 0.3s ease;
+    background-image: linear-gradient(
+      to left,
+      var(--c-accent1),
+      var(--c-accent1)
+    );
+    background-size: 0 var(--size-1);
+    background-repeat: no-repeat;
+    background-position: left 100%;
+  }
+  a.custom-underline:hover,
+  a.custom-underline:focus-visible {
+    background-size: 100% var(--size-1);
+  }
+</style>

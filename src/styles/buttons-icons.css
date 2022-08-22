@@ -2,13 +2,12 @@
 .btn {
   padding: var(--size-3);
   display: inline-block;
-
   transition: 0.3s transform ease, 0.3s background-color ease;
 }
 a.btn,
 a.btn-text {
+  color: unset;
   text-decoration: none;
-  color: var(--c-text);
 }
 .btn.btn-text {
   padding: var(--size-3) 0;

@@ -40,7 +40,7 @@
 <style>
   /* about */
   .about-container {
-    margin-block: var(--size-11);
+    margin-block: var(--size-11) var(--size-6);
     padding-block: var(--size-3);
     max-inline-size: min(65ch, 95%);
     margin-inline: auto;
@@ -76,5 +76,11 @@
   a.custom-underline:hover,
   a.custom-underline:focus-visible {
     background-size: 100% var(--size-1);
+  }
+
+  @media (min-width: 48em) {
+    .about-container {
+      padding-block: var(--size-10) var(--size-6);
+    }
   }
 </style>

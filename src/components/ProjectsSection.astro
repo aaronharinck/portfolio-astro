@@ -1,0 +1,194 @@
+---
+// Access images in `src/assets/images/`
+
+const projects = [
+  {
+    name: "durf2030",
+    headline: "Crowdfunding site with citizen participation",
+    tags: ["React", "Firebase", "MobX"],
+    description:
+      "A crowdfunding platform prototype with citizen participation features. The goal is to enable and fund local projects that have cultural significance and bring citizens of a city closer together.",
+    img_path_mockup: "durf/durf_mockup.png",
+    live_link: "https://bap-eight.vercel.app",
+    link_text: "crowdfunding project",
+    accent: "#7AB8AC",
+  },
+  {
+    name: "incognitoo",
+    headline: "Mini social media platform with a focus on anonymity",
+    tags: ["React", "MobX"],
+    description:
+      "A social media platform for anonymous users. This was one of my first websites I made with React. It includes state, react hooks, routing, controlled components. Users can quickly pick a name and color for their avatar before they start creating posts, commenting or following other users.",
+    img_path_mockup: "incognitoo/incognitoo_mockup.png",
+    live_link: "https://mini-react-social-network.vercel.app/",
+    link_text: "social media project",
+    accent: "#E5EEFF",
+  },
+  {
+    name: "gekke-gympies",
+    headline: "Website for a club of eccentric shoemakers",
+    tags: ["JavaScript", "PHP"],
+    description:
+      "I wanted to breathe new life into an old craft or pastime. I also had to create a website for their association. Originally, I developed this wesbite using PHP, but I've since rewritten it to no longer use PHP.",
+    img_path_mockup: "gekke_gympies/gekke_gympies_mockup.png",
+    live_link: "https://aaronharinck.be/gekke-schoenmakers/",
+    link_text: "shoemakers project",
+    accent: "#FECDDA",
+  },
+];
+
+// import imageDurfDefault from "@assets/images/durf/durf_mockup.png";
+
+const imageBaseUrl = "https://aaron-cfp.imgix.net/";
+const imageBaseUrlParams = "?auto=compress,format";
+---
+
+<section id="projects">
+  <div class="projects-container">
+    <h2 class="projects-title">Highlighted projects</h2>
+    <div class="works">
+      {
+        projects.map(project => (
+          <article
+            class="project"
+            style={`background-color: ${project.accent}`}
+          >
+            <h3 class="project-title">{project.headline}</h3>
+            <img
+              src={`${imageBaseUrl}${project.img_path_mockup}${imageBaseUrlParams}`}
+              alt={`mockup of the ${project.name} project`}
+              class="project-img"
+              loading="lazy"
+              width="480"
+              height="420"
+              sizes="(min-width: 48em) 24rem, 90vw"
+              srcset={`
+                ${imageBaseUrl}${project.img_path_mockup}${imageBaseUrlParams}&w=400 400w,
+                ${imageBaseUrl}${project.img_path_mockup}${imageBaseUrlParams}&w=500 500w,
+                ${imageBaseUrl}${project.img_path_mockup}${imageBaseUrlParams}&w=600 600w,
+                ${imageBaseUrl}${project.img_path_mockup}${imageBaseUrlParams}&w=700 700w,
+                ${imageBaseUrl}${project.img_path_mockup}${imageBaseUrlParams}&w=800 800w,
+                ${imageBaseUrl}${project.img_path_mockup}${imageBaseUrlParams}&w=900 900w,
+                ${imageBaseUrl}${project.img_path_mockup}${imageBaseUrlParams}&w=1000 1000w,
+                ${imageBaseUrl}${project.img_path_mockup}${imageBaseUrlParams}&w=1200 1200w,
+                ${imageBaseUrl}${project.img_path_mockup}${imageBaseUrlParams}&w=1400 1400w,
+                `}
+            />
+            <div class="tags">
+              {project.tags.map(tag => (
+                <div class="tag">{tag}</div>
+              ))}
+            </div>
+            <p class="project-text">{project.description}</p>
+            <a
+              href={project.live_link}
+              class="project-link btn btn-text btn-icon"
+              target="_blank"
+              rel="noopener"
+            >
+              View {project.link_text}
+              <svg class="icon icon-right">
+                <use xlink:href="sprite.svg#arrow-n-right" />
+              </svg>
+            </a>
+          </article>
+        ))
+      }
+      <a href="/projects" class="more-projects project-title">
+        <svg class="icon">
+          <use xlink:href="sprite.svg#plus-circle"></use>
+        </svg>
+        View more work
+      </a>
+    </div>
+    <!-- <a href="/projects" class="btn btn-text btn-icon btn-muted more-link">
+      View more work
+      <svg class="icon icon-right">
+        <use xlink:href="sprite.svg#arrow-n-right"></use>
+      </svg>
+    </a> -->
+  </div>
+</section>
+
+<style>
+  .projects-title {
+    color: var(--c-muted);
+    margin-block: var(--size-4) var(--size-8);
+  }
+  .projects-container {
+    /* max-inline-size: var(--container-w-large); */
+    margin-inline: auto;
+    padding-block: var(--size-8);
+    color: var(--c-text-alt);
+  }
+
+  .works {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--size-6);
+  }
+
+  .more-link {
+    justify-content: flex-end;
+  }
+
+  .more-projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--size-2);
+    color: var(--c-text);
+    padding: var(--size-8) var(--size-fluid-2);
+    border: dashed var(--border-size-3);
+    border-radius: var(--radius-3) var(--radius-3) var(--radius-4)
+      var(--radius-3);
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .more-projects .icon {
+    max-width: 5rem;
+    max-height: 5rem;
+  }
+
+  .more-projects:hover {
+    background-color: var(--c-text);
+    color: var(--c-text-alt);
+  }
+
+  /* project */
+  .project {
+    padding-inline: var(--size-3);
+    padding-block: var(--size-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-3);
+    border-radius: var(--radius-3) var(--radius-4) var(--radius-3)
+      var(--radius-3);
+  }
+  .project-title {
+    font-size: var(--fs-f-large);
+    font-weight: 700;
+  }
+  .project-img {
+    height: auto;
+    align-self: center;
+  }
+  .project-link {
+    color: var(--c-text-alt);
+    font-weight: var(--font-weight-6);
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--size-2);
+    margin-block: var(--size-3);
+  }
+  .tag {
+    background-color: hsla(0, 0%, 100%, 50%);
+    font-weight: var(--font-weight-3);
+    padding: var(--size-2) var(--size-3);
+    border-radius: var(--radius-1);
+  }
+</style>

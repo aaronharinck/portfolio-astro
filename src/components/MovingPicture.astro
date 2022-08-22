@@ -2,8 +2,11 @@
 // Access images in `src/assets/images/`
 
 import heroImageDefault from "@assets/images/hero-image-default.jpg";
-const imageBaseUrl =
-  "https://aaron-cfp.imgix.net/_main/hero-image-high.jpg?auto=compress,format";
+// const imageBaseUrl =
+//   "https://aaron-cfp.imgix.net/_main/hero-image.jpg?auto=compress,format";
+// const urlParams = "&w=";
+const imageBaseUrl = "https://ik.imagekit.io/aaronh/main/hero-image.jpg";
+const urlParams = "?tr=q-60,w-";
 ---
 
 <img
@@ -13,21 +16,19 @@ const imageBaseUrl =
   width="400"
   height="494"
   title="Bits and bytes"
-  sizes="(max-width: 47.9375em) 80vw,
-        (min-width: 48em) 45vw, 
-        80vw"
+  sizes="(min-width: 48em) 45vw, 80vw"
   srcset={`
-          ${imageBaseUrl}&w=400 400w,
-          ${imageBaseUrl}&w=500 500w,
-          ${imageBaseUrl}&w=600 600w,
-          ${imageBaseUrl}&w=700 700w,
-          ${imageBaseUrl}&w=800 800w,
-          ${imageBaseUrl}&w=900 900w,
-          ${imageBaseUrl}&w=1000 1000w,
-          ${imageBaseUrl}&w=1200 1200w,
-          ${imageBaseUrl}&w=1400 1400w,
-          ${imageBaseUrl}&w=1600 1600w,
-          ${imageBaseUrl}&w=1800 1800w
+          ${imageBaseUrl}${urlParams}400 400w,
+          ${imageBaseUrl}${urlParams}500 500w,
+          ${imageBaseUrl}${urlParams}600 600w,
+          ${imageBaseUrl}${urlParams}700 700w,
+          ${imageBaseUrl}${urlParams}800 800w,
+          ${imageBaseUrl}${urlParams}900 900w,
+          ${imageBaseUrl}${urlParams}1000 1000w,
+          ${imageBaseUrl}${urlParams}1200 1200w,
+          ${imageBaseUrl}${urlParams}1400 1400w,
+          ${imageBaseUrl}${urlParams}1600 1600w,
+          ${imageBaseUrl}${urlParams}1800 1800w
           `}
 />
 

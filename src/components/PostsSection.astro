@@ -1,0 +1,177 @@
+---
+const posts = [
+  {
+    title: "Featured by Smashing Magazine",
+    category: "acknowledgments",
+    description:
+      "I designed an october-themed wallpaper that was featured by Smashing Magazine.",
+    img_path_thumbnail: "posts/smashing-oct-wallpaper-nocal.png",
+    img_thumbnail_alt:
+      "halloween-themed wallpaper: it depicts an illustrated hedgehog with a nightcap",
+    live_link:
+      "https://www.smashingmagazine.com/2019/09/desktop-wallpaper-calendars-october-2019/#:~:text=aaron%20harinck",
+    link_text: "Check out the october wallpaper",
+  },
+  {
+    title: "Wrote a cool article",
+    category: "writing",
+    description:
+      "I wrote a Medium article about reviewing / dissecting the United Wardrobe mobile app.",
+    img_path_thumbnail: "posts/medium-article-designdetails-uw.jpg",
+    img_thumbnail_alt: "phone mockup with the united wardrobe app",
+    live_link:
+      "https://medium.com/@aaron.harinck/design-details-united-wardrobe-9b2652146653",
+    link_text: "Read the United Wardrobe article",
+  },
+];
+
+const imageBaseUrl = "https://ik.imagekit.io/aaronh/";
+const imageBaseUrlParams = "?tr=";
+---
+
+<section id="posts" class="posts">
+  <h2 class="posts-title">Posts & more</h2>
+  {
+    posts.map((post, index) => (
+      <article class="post">
+        <h3 class="post-title">{post.title}</h3>
+        <p class="post-category">{post.category}</p>
+        <p class="post-description">{post.description}</p>
+        <a
+          href={post.live_link}
+          class="post-link btn btn-text btn-icon"
+          target="_blank"
+          rel="noopener"
+        >
+          {post.link_text}
+          <svg class="icon icon-right">
+            <use xlink:href="sprite.svg#arrow-n-right" />
+          </svg>
+        </a>
+        <a
+          href={post.live_link}
+          class="post-img-link-wrapper"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            src={`${imageBaseUrl}${post.img_path_thumbnail}`}
+            alt={post.img_thumbnail_alt}
+            loading="lazy"
+            width="640"
+            height="360"
+            class="post-img"
+            sizes="(min-width: 48em) 40rem, 90vw"
+            srcset={`
+            ${imageBaseUrl}${post.img_path_thumbnail}${imageBaseUrlParams}w-400 400w,
+            ${imageBaseUrl}${post.img_path_thumbnail}${imageBaseUrlParams}w-500 500w,
+            ${imageBaseUrl}${post.img_path_thumbnail}${imageBaseUrlParams}w-600 600w,
+            ${imageBaseUrl}${post.img_path_thumbnail}${imageBaseUrlParams}w-650 650w,
+            ${imageBaseUrl}${post.img_path_thumbnail}${imageBaseUrlParams}w-700 700w,
+            ${imageBaseUrl}${post.img_path_thumbnail}${imageBaseUrlParams}w-750 750w,
+            ${imageBaseUrl}${post.img_path_thumbnail}${imageBaseUrlParams}w-800 800w,
+            ${imageBaseUrl}${post.img_path_thumbnail}${imageBaseUrlParams}w-850 850w,
+            ${imageBaseUrl}${post.img_path_thumbnail}${imageBaseUrlParams}w-900 900w,
+            ${imageBaseUrl}${post.img_path_thumbnail}${imageBaseUrlParams}w-1000 1000w,
+            ${imageBaseUrl}${post.img_path_thumbnail}${imageBaseUrlParams}w-1100 1100w,
+            ${imageBaseUrl}${post.img_path_thumbnail}${imageBaseUrlParams}w-1200 1200w,
+            ${imageBaseUrl}${post.img_path_thumbnail}${imageBaseUrlParams}w-1280 1280w,
+            `}
+          />
+        </a>
+      </article>
+    ))
+  }
+</section>
+
+<style>
+  .posts {
+    margin-inline: auto;
+    padding-block: var(--size-8);
+  }
+
+  .posts-title {
+    color: var(--c-muted);
+    margin-block: var(--size-4) var(--size-7);
+  }
+
+  /* individual post */
+  .post {
+    display: grid;
+    gap: var(--size-3);
+    margin-block: var(--size-3) var(--size-9);
+  }
+
+  .post-title {
+    font-weight: var(--font-weight-6);
+    font-size: var(--fs-f-large);
+  }
+
+  .post-img-link-wrapper {
+    grid-row: 1;
+  }
+
+  .post-img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-2);
+  }
+
+  .post-category {
+    grid-row: 2;
+    text-transform: uppercase;
+    color: var(--c-muted);
+  }
+
+  @media (min-width: 48em) {
+    .posts {
+      max-inline-size: var(--container-w-large);
+      margin-inline: auto;
+      padding-block: var(--size-10);
+    }
+
+    .post {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(4, auto);
+      gap: var(--size-1) var(--size-8);
+      margin-block-end: var(--size-10);
+    }
+
+    .post-img-link-wrapper {
+      grid-column: 2;
+      grid-row: 1 / -1;
+    }
+
+    .posts .post:nth-child(2) .post-img-link-wrapper {
+      grid-column: 1;
+      grid-row: 1 / -1;
+    }
+
+    .post-img {
+      filter: grayscale(1);
+      transition: 0.3s filter ease;
+    }
+
+    .post:hover .post-img {
+      filter: none;
+    }
+
+    .post-category {
+      grid-row: 1;
+      align-self: end;
+    }
+
+    .post-description {
+      max-width: var(--size-content-2);
+    }
+
+    .btn.post-link {
+      align-self: end;
+      border: var(--border-size-2) solid var(--c-text);
+      padding-inline: var(--size-4) var(--size-5);
+      border-radius: var(--radius-2) var(--radius-3) var(--radius-2)
+        var(--radius-2);
+      max-width: fit-content;
+    }
+  }
+</style>

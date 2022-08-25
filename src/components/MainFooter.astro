@@ -128,10 +128,17 @@ const currentYear = new Date().getFullYear();
   }
 
   .connect-link:hover,
-  .connect-link:active {
+  .connect-link:active,
+  .connect-link:focus-visible {
     border-color: var(--c-accent1);
     background-color: var(--c-accent1);
     color: var(--c-grayscale);
+  }
+
+  .connect-link:focus-visible {
+    outline: var(--border-size-3) solid var(--c-accent1);
+    outline-offset: var(--size-1);
+    border-radius: var(--radius-2);
   }
 
   /* footer sitemap */
@@ -159,6 +166,12 @@ const currentYear = new Date().getFullYear();
 
   .sitemap nav a:hover {
     color: var(--c-muted-dark);
+  }
+
+  .sitemap nav a:focus-visible {
+    outline: var(--border-size-2) solid var(--c-accent1);
+    outline-offset: var(--size-1);
+    border-radius: var(--radius-2);
   }
 
   /* footer icon */

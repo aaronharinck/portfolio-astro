@@ -125,8 +125,15 @@ import MovingPicture from "@components/MovingPicture.astro";
     max-height: var(--size-8);
     transition: 0.3s color ease, 0.3s all ease;
   }
+
+  .experience-logos a:focus-visible {
+    outline: var(--border-size-3) solid var(--c-accent1);
+    outline-offset: var(--size-2);
+    border-radius: var(--radius-2);
+    color: var(--c-text);
+  }
   .exp-logo:hover,
-  .experience-logos:focus-visible a:focus-visible {
+  .experience-logos a:focus-visible .exp-logo {
     fill: var(--c-text);
     color: var(--c-text);
   }

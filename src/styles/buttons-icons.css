@@ -13,6 +13,12 @@ a.btn-text {
   padding: var(--size-3) 0;
   font-size: var(--fs-large);
 }
+.btn.btn-text:focus-visible {
+  outline: var(--border-size-3) solid var(--c-accent1);
+  outline-offset: var(--size-1);
+  border-radius: var(--radius-2);
+}
+
 .btn.btn-primary {
   background-color: var(--c-accent1);
   font-size: var(--fs-large);
@@ -24,6 +30,9 @@ a.btn-text {
 .btn.btn-primary:focus-visible {
   background-color: var(--c-accent2);
   transform: scale3d(1.1, 1.1, 1);
+}
+.btn.btn-primary:focus-visible {
+  outline: var(--border-size-2) solid var(--c-grayscale);
 }
 
 .btn-text.btn-muted {

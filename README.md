@@ -1,32 +1,37 @@
-# Welcome to [Astro](https://astro.build)
+# aaronharinck.be
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
+## My personal website / portfolio
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Built with [Astro](https://astro.build/) and hosted with [Netlify](https://www.netlify.com/)
 
-## 🚀 Project Structure
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0a49bf23-3d34-47c9-965a-87267ab1f894/deploy-status)](https://app.netlify.com/sites/aaron-astro-portfolio/deploys)
 
-Inside of your Astro project, you'll see the following folders and files:
+## 📂 Project Structure
+
+Inside the Astro project, you'll see the following folders and files:
 
 ```
 /
 ├── public/
 │   └── favicon.ico
 ├── src/
-│   ├── components/
+│   ├── layouts/
 │   │   └── Layout.astro
+│   └── components/
+│   │   └── Component.astro
 │   └── pages/
 │       └── index.astro
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 📦 Installed packages (extra's)
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components or layouts.
+- [Open-props](https://open-props.style/)
+- PostCSS - [Autoprefixer](https://github.com/postcss/autoprefixer)
+- Prettier - [Prettier Plugin Astro](https://github.com/withastro/prettier-plugin-astro/)
+- [Astro/react](https://github.com/withastro/astro/tree/main/packages/integrations/react/) (installed but not used... yet)
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
+## 🤖 Commands
 
 All commands are run from the root of the project, from a terminal:
 
@@ -39,6 +44,6 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
 | `npm run astro --help` | Get help using the Astro CLI                       |
 
-## 👀 Want to learn more?
+## ❗️ Notice
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Plagiarism is bad, please give proper credit! You can do this by including a link to [aaronharinck.be](https://aaronharinck.be/)

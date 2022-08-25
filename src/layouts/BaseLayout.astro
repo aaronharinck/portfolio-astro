@@ -19,6 +19,7 @@ import "@styles/normalize-reset.css";
 import "@styles/global.css";
 import "@styles/buttons-icons.css";
 import MainNav from "@components/MainNav.astro";
+import MainFooter from "@components/MainFooter.astro";
 ---
 
 <!DOCTYPE html>
@@ -54,7 +55,7 @@ import MainNav from "@components/MainNav.astro";
         <slot />
       </div>
 
-      <footer></footer>
+      <MainFooter />
     </div>
 
     <style>

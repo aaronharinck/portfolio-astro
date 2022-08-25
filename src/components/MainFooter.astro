@@ -1,0 +1,270 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+  <div class="footer-container">
+    <h2 class="footer-title">Let's connect!</h2>
+    <address>
+      <ul class="connect-links">
+        <li class="connect-li">
+          <a
+            href="mailto:work.aaronharinck@outlook.com"
+            target="_blank"
+            rel="noopener"
+            class="connect-link"
+            >Email
+          </a>
+        </li>
+        <li class="connect-li">
+          <a
+            href="https://www.linkedin.com/in/aaron-harinck/"
+            target="_blank"
+            rel="noopener"
+            class="connect-link"
+            >LinkedIn
+          </a>
+        </li>
+        <li class="connect-li">
+          <a
+            href="https://github.com/aaronharinck"
+            target="_blank"
+            rel="noopener"
+            class="connect-link"
+            >GitHub
+          </a>
+        </li>
+      </ul>
+    </address>
+
+    <div class="footer-bar">
+      <div class="sitemap">
+        <p class="sitemap-title">Content</p>
+        <nav aria-label="sitemap navigation">
+          <!-- 
+          <a href="/">Home</a>
+          <a href="">About</a>
+          <a href="">Work</a>
+          <a href="">Contact</a>
+         -->
+          <a href="/#about">About</a>
+          <a href="/#skills">Skills</a>
+          <a href="/#projects">Projects</a>
+          <a href="/#posts">Posts</a>
+          <a href="/#contact">Contact</a>
+        </nav>
+      </div>
+
+      <a
+        href="/cv/aaron-harinck-cv-resume-2022.pdf"
+        target="_blank"
+        class="download-link btn btn-text btn-icon"
+      >
+        Download my curriculum vitae
+        <svg class="icon icon-big icon-down icon-down">
+          <use xlink:href="sprite.svg#download"></use>
+        </svg>
+      </a>
+
+      <svg class="icon logo-icon">
+        <use xlink:href="sprite.svg#ah-logo"></use>
+      </svg>
+    </div>
+
+    <small>Designed & developed by Aaron Harinck — &copy;{currentYear}</small>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background-color: var(--c-grayscale);
+    color: var(--c-grayscale-alt);
+    padding-inline: var(--size-3);
+    padding-block: var(--size-9) var(--size-6);
+  }
+
+  .footer-title {
+    font-size: var(--fs-f-xl);
+    font-weight: var(--font-weight-8);
+  }
+
+  .footer-container {
+    max-inline-size: var(--container-w);
+    margin-inline: auto;
+  }
+
+  /* connect */
+  .connect-links {
+    list-style-type: none;
+    padding-inline-start: unset;
+    display: flex;
+    flex-direction: column;
+    padding-block: var(--size-6);
+    gap: var(--size-3);
+  }
+
+  .connect-link {
+    text-decoration: none;
+    font-style: normal;
+    display: block;
+    text-align: center;
+    font-size: var(--font-size-fluid-2);
+    font-weight: var(--font-weight-8);
+    color: var(--c-grayscale-alt);
+    padding-block: var(--size-8);
+    padding-inline: var(--size-3);
+    border: solid 4px var(--c-grayscale-alt);
+    border-radius: var(--radius-2);
+    text-align: center;
+    transition: 0.3s ease background-color;
+  }
+
+  .connect-li:first-child .connect-link {
+    border-start-end-radius: var(--radius-4);
+  }
+
+  .connect-li:last-child .connect-link {
+    border-end-start-radius: var(--radius-4);
+  }
+
+  .connect-link:hover,
+  .connect-link:active {
+    border-color: var(--c-accent1);
+    background-color: var(--c-accent1);
+    color: var(--c-grayscale);
+  }
+
+  /* footer sitemap */
+  .sitemap-title {
+    text-transform: uppercase;
+    color: var(--c-muted-dark);
+    letter-spacing: var(--font-letterspacing-1);
+    font-weight: var(--font-weight-6);
+    padding-block: var(--size-3) var(--size-2);
+  }
+
+  .sitemap nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-1);
+  }
+
+  .sitemap nav a {
+    padding-block: var(--size-3);
+    padding-inline-end: var(--size-3);
+    color: var(--c-text-alt);
+    text-underline-offset: var(--size-1);
+    align-self: flex-start;
+  }
+
+  .sitemap nav a:hover {
+    color: var(--c-muted-dark);
+  }
+
+  /* footer icon */
+  footer .logo-icon {
+    height: var(--size-10);
+    width: var(--size-10);
+    margin-inline: auto;
+    margin-block: var(--size-3);
+  }
+
+  /* download button */
+  .btn.download-link {
+    margin-block: var(--size-3);
+    justify-content: center;
+    border: 4px solid var(--c-text-alt);
+    padding-inline: var(--size-4) var(--size-5);
+    border-radius: var(--radius-2) var(--radius-3) var(--radius-2)
+      var(--radius-2);
+    font-weight: var(--font-weight-6);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .btn.download-link:hover {
+    background-color: var(--c-grayscale-alt);
+    color: var(--c-text);
+  }
+
+  .btn .icon-big.icon-down {
+    width: var(--size-5);
+    height: var(--size-5);
+  }
+
+  /* copyright */
+  small {
+    font-size: var(--size-3);
+    font-weight: var(--font-weight-3);
+    display: block;
+    text-align: center;
+  }
+
+  @media (min-width: 48em) {
+    .connect-links {
+      flex-direction: row;
+      width: 100%;
+    }
+
+    .connect-li {
+      flex: 1;
+      transition: flex-grow 0.5s ease;
+    }
+
+    .connect-li:hover {
+      flex-grow: 2;
+    }
+
+    .connect-li:first-child .connect-link {
+      border-radius: var(--radius-4) var(--radius-2) var(--radius-2)
+        var(--radius-2);
+    }
+
+    .connect-li:last-child .connect-link {
+      border-radius: var(--radius-2) var(--radius-4) var(--radius-2)
+        var(--radius-2);
+    }
+
+    .connect-link {
+      padding-block: var(--size-9);
+    }
+
+    .sitemap-title {
+      padding: unset;
+    }
+
+    .sitemap nav {
+      flex-direction: row;
+      gap: var(--size-3);
+    }
+  }
+
+  @media (min-width: 62em) {
+    .footer-container {
+      max-inline-size: var(--container-w-large);
+      padding-block-start: var(--size-8);
+    }
+
+    .footer-bar {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: var(--size-5);
+      align-items: center;
+      margin-block: var(--size-8) var(--size-6);
+    }
+
+    .logo-icon {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .btn.download-link {
+      justify-content: flex-end;
+      justify-self: end;
+      width: fit-content;
+    }
+
+    small {
+      text-align: start;
+    }
+  }
+</style>

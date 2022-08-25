@@ -20,13 +20,14 @@
   --c-text: hsl(240, 20%, 99%);
   --c-text-alt: hsl(0, 0%, 0%);
   --c-muted: hsl(0, 0%, 60%); /* or #a19cb0 */
+  --c-muted-dark: hsl(0, 0%, 40%);
   --c-light: hsl(271, 35%, 70%);
   --c-grayscale: var(--c-text); /* black or white */
   --c-grayscale-alt: var(--c-text-alt);
   --c-accent1: hsl(260, 100%, 58%);
   --c-accent2: hsl(270, 94%, 12%);
 
-  --container: calc(100vw - 1rem);
+  --container-w: calc(100vw - 1rem);
   --container-w-large: min(90%, 71.25rem);
 }
 

@@ -1,4 +1,6 @@
 <header>
+  <a href="#main-content" class="skip-nav-link">Skip to main content</a>
+
   <nav class="container nav-container">
     <a href="/" class="logo-link" aria-label="Go to homepage">
       <svg
@@ -66,6 +68,23 @@
 
 <style>
   /* automaticaly scoped to MainNav component by Astro*/
+  .skip-nav-link {
+    position: absolute;
+    transition: transform 0.3s ease;
+    transform: translate3d(0, -120%, 0);
+    background-color: var(--c-accent1);
+    color: var(--c-text);
+    padding: var(--size-3);
+    border-radius: var(--radius-2);
+    left: var(--size-2);
+    text-underline-offset: var(--size-1);
+    font-weight: var(--font-weight-6);
+  }
+  .skip-nav-link:focus {
+    transform: translate3d(0, 0, 0);
+    z-index: var(--layer-important);
+  }
+
   nav {
     z-index: 10;
     width: 100%;

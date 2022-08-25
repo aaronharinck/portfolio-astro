@@ -98,19 +98,13 @@ const imageBaseUrlParams = "?tr=";
           </a>
         ))
       }
-      <a href="/projects" class="more-projects">
+      <!-- <a href="/projects" class="more-projects">
         <svg class="icon">
           <use xlink:href="sprite.svg#plus-circle"></use>
         </svg>
         View more work
-      </a>
+      </a> -->
     </div>
-    <!-- <a href="/projects" class="btn btn-text btn-icon btn-muted more-link">
-      View more work
-      <svg class="icon icon-right">
-        <use xlink:href="sprite.svg#arrow-n-right"></use>
-      </svg>
-    </a> -->
   </div>
 </section>
 
@@ -169,6 +163,11 @@ const imageBaseUrlParams = "?tr=";
       var(--radius-3);
     text-decoration: none;
     color: var(--c-text-alt);
+    transition: transform 0.3s ease;
+  }
+
+  .project-link-wrapper:hover {
+    transform: translate3d(0, -0.5rem, 0);
   }
 
   .project {
@@ -185,6 +184,9 @@ const imageBaseUrlParams = "?tr=";
     height: auto;
     align-self: center;
   }
+  .project-text {
+    max-width: var(--size-content-2);
+  }
   .project-link {
     color: var(--c-text-alt);
     font-weight: var(--font-weight-6);
@@ -193,6 +195,7 @@ const imageBaseUrlParams = "?tr=";
     display: flex;
     flex-wrap: wrap;
     gap: var(--size-2);
+    align-content: center;
   }
   .tag {
     background-color: hsla(0, 0%, 100%, 50%);
@@ -234,7 +237,8 @@ const imageBaseUrlParams = "?tr=";
     }
 
     .proj-2 {
-      grid-column: 1 / 4;
+      /* grid-column: 1 / 4; */
+      grid-column: 1 / 6;
     }
 
     .proj-2 article {

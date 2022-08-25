@@ -44,7 +44,11 @@
       </div>
       <div>
         <label for="form_identifier">Your name (or company)</label>
-        <input type="text" id="form_identifier" name="identifier" minlength="2"
+        <input
+          type="text"
+          id="form_identifier"
+          name="identifier"
+          minlength="2"
         />
       </div>
       <div>
@@ -167,8 +171,8 @@
     color: var(--c-text);
   }
 
-  /* a confusing & elaborate css class a day keeps the imposters away */
-  .contact .contact-form > div.test-field:nth-child(1) {
+  /* a somewhat weird css class a day keeps the imposters away */
+  .contact-form > div.test-field {
     display: none;
   }
 

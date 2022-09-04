@@ -1,0 +1,17 @@
+[[redirects]]
+  from = "/gekke-schoenmakers/catwalk"
+  to = "/gekke-schoenmakers/activities/catwalk/"
+  status = 301
+
+[[redirects]]
+  from = "/int2/index.php"
+  to = "/gekke-schoenmakers/:page/"
+  status = 301
+  query = {page= ":page" }
+  force = true
+
+[[redirects]]
+  from = "/int2"
+  to = "/gekke-schoenmakers/"
+  status = 301
+

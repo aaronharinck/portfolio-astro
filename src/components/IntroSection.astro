@@ -31,6 +31,17 @@ import MovingPicture from "@components/MovingPicture.astro";
     <h2 class="experience-title">Work experience</h2>
     <div class="experience-logos">
       <a
+        href="https://mediabelgium.be/"
+        target="_blank"
+        rel="noreferer noopener"
+      >
+        <svg class="exp-logo" role="img">
+          <title>Media Belgium</title>
+          <use xlink:href="sprite.svg#logo-mediabelgium"></use>
+        </svg>
+      </a>
+
+      <a
         href="https://studiohyperdrive.be/"
         target="_blank"
         rel="noreferer noopener"
@@ -68,10 +79,6 @@ import MovingPicture from "@components/MovingPicture.astro";
 </div>
 
 <style>
-  :root {
-    --letter-gradient: linear-gradient(20deg, var(--c-accent1), var(--grape-4));
-  }
-
   .title--small {
     font-size: var(--fs-f-regular);
     display: block;
@@ -85,7 +92,10 @@ import MovingPicture from "@components/MovingPicture.astro";
     -webkit-text-fill-color: transparent;
     background-size: 100% 200%;
     background-position-y: 100%;
-    animation: pulse 3.3s ease-in-out infinite;
+    animation-name: pulse;
+    animation-duration: 3.3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
   }
 
   .intro-text {
@@ -102,7 +112,7 @@ import MovingPicture from "@components/MovingPicture.astro";
 
   /* experience */
   .experience-banner {
-    max-width: min(90%, 60rem);
+    max-width: min(90%, 65rem);
     margin-inline: auto;
     margin-block: var(--size-8);
     text-align: center;
@@ -116,7 +126,8 @@ import MovingPicture from "@components/MovingPicture.astro";
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: var(--size-8);
+    column-gap: var(--size-8);
+    row-gap: var(--size-6);
   }
   .experience-logos .exp-logo {
     fill: var(--c-muted);

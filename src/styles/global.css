@@ -29,6 +29,8 @@
 
   --container-w: calc(100vw - 1rem);
   --container-w-large: min(90%, 71.25rem);
+
+  --letter-gradient: linear-gradient(20deg, var(--c-accent1), #da77f2);
 }
 
 html {

@@ -1,0 +1,42 @@
+---
+export interface Props {
+  content: string;
+  btnType?: "button" | "submit" | "reset" | "link";
+  icon?: string;
+  href?: string;
+}
+
+const { content, btnType, icon, href } = Astro.props as Props;
+---
+
+{
+  btnType === "link" ? (
+    <a href={href} class={`btn btn-${btnType}`}>
+      {content}
+    </a>
+  ) : (
+    <button type={btnType} class={`btn btn-${btnType}`}>
+      {content}
+    </button>
+  )
+}
+
+<style>
+  .btn {
+  }
+
+  .btn-link {
+  }
+
+  .btn-text {
+  }
+
+  .btn-outline {
+  }
+
+  .btn-submit {
+  }
+
+  .btn-reset {
+  }
+</style>

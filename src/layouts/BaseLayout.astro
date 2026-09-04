@@ -13,7 +13,8 @@ const {
   robots = "index, follow",
   lang = "en",
   canonical = `https://aaronharinck.be${Astro.url.pathname}`,
-} = Astro.props as Props;
+} = (Astro.props as Props & { frontmatter?: Props }).frontmatter ??
+  (Astro.props as Props);
 
 import "@styles/normalize-reset.css";
 import "@styles/global.css";

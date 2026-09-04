@@ -1,3 +1,7 @@
+[build.environment]
+  # Astro 7 requires Node >= 22.12; pin an LTS release for Netlify builds
+  NODE_VERSION = "24"
+
 [[redirects]]
   from = "/gekke-schoenmakers/catwalk"
   to = "/gekke-schoenmakers/activities/catwalk/"

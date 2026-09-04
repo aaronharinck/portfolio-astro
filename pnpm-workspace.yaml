@@ -1,0 +1,12 @@
+# pnpm 11 only reads pnpm settings from this file (no longer from .npmrc).
+
+# Expose Astro's dependencies at the root of node_modules (was `shamefully-hoist`
+# in .npmrc). Astro's prerender bundle (dist/.prerender) imports packages such as
+# `cookie` as bare specifiers; hoisting makes sure the correct version is found
+# even when a stray node_modules exists in a parent directory (e.g. ~/node_modules).
+shamefullyHoist: true
+
+# Dependencies that are allowed to run install scripts.
+allowBuilds:
+  esbuild: true
+  sharp: true

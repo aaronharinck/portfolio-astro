@@ -6,6 +6,9 @@ import SkillsSection from "@components/SkillsSection.astro";
 import ProjectsSection from "@components/ProjectsSection.astro";
 import PostsSection from "@components/PostsSection.astro";
 import ContactSection from "@components/ContactSection.astro";
+import { getCollection } from "astro:content";
+
+const cases = await getCollection("cases");
 ---
 
 <Layout
@@ -18,6 +21,17 @@ import ContactSection from "@components/ContactSection.astro";
     <AboutSection />
 
     <SkillsSection />
+
+    <!-- <ul>
+      {
+        cases.slice(0, 3).map((caseItem) => (
+          <li>
+            <a href={`/cases/${caseItem.id}`}>{caseItem.data.title}</a>
+            <p>{caseItem.data.excerpt}</p>
+          </li>
+        ))
+      }
+    </ul> -->
 
     <ProjectsSection />
 
@@ -42,11 +56,11 @@ import ContactSection from "@components/ContactSection.astro";
   @media (min-width: 48em) {
   }
 
-  .link-card-grid {
+  /* .link-card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
     gap: 1rem;
     padding: 0;
     color: var(--c-accent1);
-  }
+  } */
 </style>

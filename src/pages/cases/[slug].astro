@@ -1,0 +1,30 @@
+---
+import type { InferGetStaticPropsType } from "astro";
+import { getCollection, render } from "astro:content";
+import Layout from "@layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const cases = await getCollection("cases");
+
+  return cases.map((caseItem) => ({
+    params: {
+      slug: caseItem.id,
+    },
+    props: {
+      caseItem,
+    },
+  }));
+}
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { caseItem } = Astro.props;
+const { title, excerpt } = caseItem.data;
+const { Content } = await render(caseItem);
+---
+
+<Layout title={title} description={excerpt}>
+  Project — {title}
+
+  <Content />
+</Layout>

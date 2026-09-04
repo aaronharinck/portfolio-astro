@@ -2,6 +2,10 @@
   "name": "@astro/portfolio",
   "version": "0.0.1",
   "private": true,
+  "packageManager": "pnpm@11.24.0",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "browserslist": [
     "defaults"
   ],
@@ -13,14 +17,17 @@
     "astro": "astro"
   },
   "devDependencies": {
-    "@astrojs/react": "^2.0.2",
-    "astro": "^2.0.10",
-    "autoprefixer": "^10.4.13",
-    "open-props": "^1.5.5",
-    "postcss-jit-props": "^1.0.9",
-    "prettier": "^2.8.4",
-    "prettier-plugin-astro": "^0.9.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@astrojs/react": "^6.0.5",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "astro": "^7.2.10",
+    "autoprefixer": "^10.5.4",
+    "open-props": "^1.7.23",
+    "postcss-jit-props": "^1.0.16",
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^0.14.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "sharp": "^0.35.4"
   }
 }
